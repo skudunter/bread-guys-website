@@ -40,8 +40,8 @@ export default function Features() {
                   d="M 17.571 52.823 L 39.181 52.823 L 39.191 52.823 C 40.624 52.823 42.24 52.309 43.67 51.164 C 44.787 52.181 46.176 52.777 47.698 52.777 C 51.349 52.777 54.63 49.328 55.331 44.752 C 56 40.304 54.14 33.799 49.79 33.144 C 48.36 32.929 46.909 33.409 45.549 34.483 C 44.389 32.363 42.508 30.322 40.191 29.849 L 40.191 19.713 C 40.191 15.888 38.255 12.415 35.131 10.383 C 35.743 9.77 36.081 8.95 36.081 8.075 C 36.081 6.28 34.617 4.82 32.818 4.82 L 23.944 4.82 C 22.134 4.82 20.681 6.271 20.681 8.075 C 20.681 8.959 21.036 9.78 21.635 10.381 C 18.508 12.412 16.571 15.887 16.571 19.713 L 16.571 51.823 C 16.571 52.375 17.018 52.823 17.571 52.823 Z M 34.307 50.823 L 18.571 50.823 L 18.571 21.635 L 38.191 21.635 L 38.191 29.842 C 33.656 30.755 30.821 37.463 30.821 42.183 C 30.821 45.328 32.007 48.716 34.307 50.823 Z M 45.541 42.183 C 45.541 46.246 43.172 50.755 39.262 50.815 C 39.236 50.815 39.21 50.82 39.184 50.82 C 35.676 50.82 32.823 46.944 32.823 42.181 C 32.823 38.142 35.459 31.748 39.187 31.743 C 39.193 31.743 39.198 31.745 39.203 31.745 C 42.967 31.78 45.541 38.165 45.541 42.183 Z M 49.493 35.121 C 52.558 35.583 53.848 41.17 53.353 44.452 C 52.801 48.058 50.371 50.777 47.698 50.777 C 46.774 50.777 45.857 50.436 45.075 49.751 C 46.527 47.905 47.544 45.174 47.544 42.181 C 47.544 40.202 47.046 37.972 46.421 36.355 C 47.456 35.42 48.515 34.977 49.493 35.121 Z M 23.944 6.82 L 32.818 6.82 C 33.514 6.82 34.081 7.383 34.081 8.075 C 34.081 8.803 33.487 9.329 32.907 9.329 C 32.802 9.329 23.351 9.333 23.949 9.333 C 23.106 9.276 22.681 8.699 22.681 8.075 C 22.681 7.383 23.233 6.82 23.944 6.82 Z M 24.054 11.333 C 24.156 11.333 33.292 11.337 32.716 11.337 C 36.024 12.788 38.154 16.018 38.185 19.635 L 18.577 19.635 C 18.607 16.015 20.741 12.782 24.054 11.333 Z"
                 />
                 <path
-                  className="stroke-current text-sky-600"
-                  fill="rgb(2,132,199)"
+                  className="stroke-current text-green-500"
+                  fill="rgb(34 197 94)"
                   d="M 28.146 47.798 L 24.029 47.798 C 22.853 47.798 21.896 46.841 21.896 45.665 L 21.896 38.298 C 21.896 37.745 21.449 37.298 20.896 37.298 C 20.343 37.298 19.896 37.745 19.896 38.298 L 19.896 45.665 C 19.896 47.944 21.749 49.798 24.029 49.798 L 28.146 49.798 C 28.699 49.798 29.146 49.35 29.146 48.798 C 29.146 48.245 28.699 47.798 28.146 47.798 Z"
                 />
               </svg>
@@ -96,179 +96,22 @@ export default function Features() {
                 viewBox="0 0 64 64"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <rect
+                <circle
                   className="fill-current text-primary"
-                  width="64"
-                  height="64"
-                  rx="32"
+                  cx="32"
+                  cy="32"
+                  r="32"
                 />
-                <g
-                  transform="translate(21 21)"
-                  strokeLinecap="square"
-                  strokeWidth="2"
-                  fill="none"
-                  fillRule="evenodd"
-                >
-                  <ellipse
-                    className="stroke-current text-purple-300"
-                    cx="11"
-                    cy="11"
-                    rx="5.5"
-                    ry="11"
-                  />
-                  <path
-                    className="stroke-current text-purple-100"
-                    d="M11 0v22M0 11h22"
-                  />
-                  <circle
-                    className="stroke-current text-purple-100"
-                    cx="11"
-                    cy="11"
-                    r="11"
-                  />
-                </g>
+                <path
+                  fill="#FFFFFF"
+                  stroke="#FFFFFF"
+                  d="M 40.393 7.759 L 40.393 13.345 L 32.393 5.345 L 8.686 29.052 L 10.1 30.466 L 11.393 29.173 L 11.393 52.759 L 53.393 52.759 L 53.393 29.173 L 54.686 30.466 L 56.1 29.052 L 49.393 22.345 L 49.393 7.759 L 40.393 7.759 Z M 42.393 9.759 L 47.393 9.759 L 47.393 20.345 L 42.393 15.345 L 42.393 9.759 Z M 27.393 50.759 L 27.393 34.759 L 37.393 34.759 L 37.393 50.759 L 27.393 50.759 Z M 51.393 50.759 L 39.393 50.759 L 39.393 32.759 L 25.393 32.759 L 25.393 50.759 L 13.393 50.759 L 13.393 27.173 L 32.393 8.173 L 51.393 27.173 L 51.393 50.759 Z"
+                />
               </svg>
-              <h4 className="h4 mb-2">Instant Features</h4>
-              <p className="text-lg text-gray-400 text-center">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat.
-              </p>
-            </div>
 
-            {/* 4th item */}
-            <div
-              className="relative flex flex-col items-center bg-gray-600 rounded-md py-12"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              data-aos-anchor="[data-aos-id-blocks]"
-            >
-              <svg
-                className="w-16 h-16 mb-4"
-                viewBox="0 0 64 64"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  className="fill-current text-primary"
-                  width="64"
-                  height="64"
-                  rx="32"
-                />
-                <g
-                  transform="translate(22 21)"
-                  strokeLinecap="square"
-                  strokeWidth="2"
-                  fill="none"
-                  fillRule="evenodd"
-                >
-                  <path
-                    className="stroke-current text-purple-100"
-                    d="M17 22v-6.3a8.97 8.97 0 003-6.569A9.1 9.1 0 0011.262 0 9 9 0 002 9v1l-2 5 2 1v4a2 2 0 002 2h4a5 5 0 005-5v-5"
-                  />
-                  <circle
-                    className="stroke-current text-purple-300"
-                    cx="13"
-                    cy="9"
-                    r="3"
-                  />
-                </g>
-              </svg>
-              <h4 className="h4 mb-2">Instant Features</h4>
-              <p className="text-lg text-gray-400 text-center">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat.
-              </p>
-            </div>
-
-            {/* 5th item */}
-            <div
-              className="relative flex flex-col items-center bg-gray-600 rounded-md py-12"
-              data-aos="fade-up"
-              data-aos-delay="400"
-              data-aos-anchor="[data-aos-id-blocks]"
-            >
-              <svg
-                className="w-16 h-16 mb-4"
-                viewBox="0 0 64 64"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  className="fill-current text-primary"
-                  width="64"
-                  height="64"
-                  rx="32"
-                />
-                <g
-                  strokeLinecap="square"
-                  strokeWidth="2"
-                  fill="none"
-                  fillRule="evenodd"
-                >
-                  <path
-                    className="stroke-current text-purple-100"
-                    d="M29 42h10.229a2 2 0 001.912-1.412l2.769-9A2 2 0 0042 29h-7v-4c0-2.373-1.251-3.494-2.764-3.86a1.006 1.006 0 00-1.236.979V26l-5 6"
-                  />
-                  <path
-                    className="stroke-current text-purple-300"
-                    d="M22 30h4v12h-4z"
-                  />
-                </g>
-              </svg>
-              <h4 className="h4 mb-2">Instant Features</h4>
-              <p className="text-lg text-gray-400 text-center">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat.
-              </p>
-            </div>
-
-            {/* 6th item */}
-            <div
-              className="relative flex flex-col items-center bg-gray-600 rounded-md py-12"
-              data-aos="fade-up"
-              data-aos-delay="500"
-              data-aos-anchor="[data-aos-id-blocks]"
-            >
-              <svg
-                className="w-16 h-16 mb-4"
-                viewBox="0 0 64 64"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  className="fill-current text-primary"
-                  width="64"
-                  height="64"
-                  rx="32"
-                />
-                <g
-                  transform="translate(21 22)"
-                  strokeLinecap="square"
-                  strokeWidth="2"
-                  fill="none"
-                  fillRule="evenodd"
-                >
-                  <path
-                    className="stroke-current text-purple-300"
-                    d="M17 2V0M19.121 2.879l1.415-1.415M20 5h2M19.121 7.121l1.415 1.415M17 8v2M14.879 7.121l-1.415 1.415M14 5h-2M14.879 2.879l-1.415-1.415"
-                  />
-                  <circle
-                    className="stroke-current text-purple-300"
-                    cx="17"
-                    cy="5"
-                    r="3"
-                  />
-                  <path
-                    className="stroke-current text-purple-100"
-                    d="M8.86 1.18C3.8 1.988 0 5.6 0 10c0 5 4.9 9 11 9a10.55 10.55 0 003.1-.4L20 21l-.6-5.2a9.125 9.125 0 001.991-2.948"
-                  />
-                </g>
-              </svg>
-              <h4 className="h4 mb-2">Instant Features</h4>
-              <p className="text-lg text-gray-400 text-center">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat.
+              <h4 className="h4 mb-2">Home-made</h4>
+              <p className="text-lg text-gray-200 text-center">
+                All of our bread is made fresh with home grown love.💕
               </p>
             </div>
           </div>
