@@ -37,6 +37,10 @@ module.exports = {
         quad: "#FF773D",
         quint: "#F55536",
       },
+      backgroundImage: {
+        breadImage:"url('/images/bread.png')"
+      
+      },
       spacing: {
         "9/16": "56.25%",
         "3/4": "75%",
