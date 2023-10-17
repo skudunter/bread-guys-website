@@ -24,7 +24,7 @@ export default function Hero() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h1 mb-4" data-aos="fade-up">Bread Bros</h1>
+            <h1 className="h1 mb-4" data-aos="fade-up">The Bread People</h1>
             <p className="text-xl text-gray-200 mb-8" data-aos="fade-up" data-aos-delay="200">Freshly baked artisinal bread delivered straight to your door.</p>
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
