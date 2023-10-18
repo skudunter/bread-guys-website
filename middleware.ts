@@ -9,7 +9,8 @@ export function middleware(request: NextRequest) {
   const url = request.url;
 
   if (url.includes("/admin")) {
-    if (request.cookies.get("isAdmin")) {
+    //secure the access to the admin page
+    if (request.cookies.get(process.env.COOKIE_NAME!)) {
       return NextResponse.next();
     } else {
       return NextResponse.redirect("https://bread-people.vercel.app/");
