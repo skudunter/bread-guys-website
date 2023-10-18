@@ -4,9 +4,10 @@ export default function Info() {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20 bg-breadImage bg-cover mb-20">
+        <div className="py-12 md:py-20 bg-breadImage bg-cover mb-20" data-aos-id-image>
           {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 bg-breadImage">
+          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 bg-breadImage" data-aos="fade-up"
+              data-aos-anchor="[data-aos-id-image]">
             <div className="inline-flex text-sm font-semibold py-1 px-3 m-2 text-green-600 bg-green-200 rounded-full mb-4">
               Life's too short for anything but great bread!
             </div>
