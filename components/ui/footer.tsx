@@ -13,9 +13,14 @@ export default function Footer() {
             <div className="md:col-span-4 lg:col-span-5">
               <div className="mb-2">
                 {/* Logo */}
-                <Image src={Logo} alt = {'the sites logo'} width={500} className="w-16 h-16 fill-quint"></Image>
+                <Image
+                  src={Logo}
+                  alt={"the sites logo"}
+                  width={500}
+                  className="w-16 h-16 fill-quint"
+                ></Image>
               </div>
-              <div className="text-gray-200">
+              <div className="text-gray-200 text-sm">
                 The Bread People delivering bread since 2023.
               </div>
             </div>
@@ -83,7 +88,7 @@ export default function Footer() {
             <div className="text-green-400 hover:text-green-300 transition duration-150 ease-in-out text-sm mr-4 font-bold underline underline-offset-4 decoration-2">
               <Link href={"https://skudunter.com"}>
                 {" "}
-                Proudly made by skudunter web dev
+                Made by skudunter web dev
               </Link>
             </div>
           </div>
