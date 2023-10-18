@@ -111,7 +111,7 @@ export default function Features() {
               </svg>
 
               <h4 className="h4 mb-2">Home-made</h4>
-              <p className="text-lg text-gray-200 text-center">
+              <p className="text-lg text-gray-200 text-center" id ='info'>
                 All of our bread is made fresh with home grown love.💕
               </p>
             </div>

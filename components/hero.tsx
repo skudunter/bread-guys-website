@@ -28,10 +28,10 @@ export default function Hero() {
             <p className="text-xl text-gray-200 mb-8" data-aos="fade-up" data-aos-delay="200">Freshly baked artisinal bread delivered straight to your door.</p>
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
-                <Link className="btn text-white bg-quint hover:bg-orange-600 w-full mb-4 sm:w-auto sm:mb-0" href="#0">Buy bread now 🍞</Link>
+                <Link className="btn text-white bg-quint hover:bg-orange-600 w-full mb-4 sm:w-auto sm:mb-0" href="#form">Buy bread now 🍞</Link>
               </div>
               <div data-aos="fade-up" data-aos-delay="600">
-                <Link className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#0">Learn more 💖</Link>
+                <Link className="btn text-white bg-gray-700 hover:bg-gray-800 w-full sm:w-auto sm:ml-4" href="#info">Learn more 💖</Link>
               </div>
             </div>
           </div>

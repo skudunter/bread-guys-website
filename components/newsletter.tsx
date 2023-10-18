@@ -81,7 +81,7 @@ export default function Newsletter() {
             </div>
 
             {/* CTA form */}
-            <form className="w-full lg:w-1/2" onSubmit={handleSubmit}>
+            <form className="w-full lg:w-1/2" onSubmit={handleSubmit} id='form'>
               <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none">
                 <input
                   type="email"
