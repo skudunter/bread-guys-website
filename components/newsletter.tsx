@@ -12,9 +12,13 @@ export default function Newsletter() {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/subscribe", {
+      setLoading(true);
+      const res: Response = await fetch("/api/handleSubmit", {
         method: "POST",
-        body: JSON.stringify({ email, mobileNumber, address, numberOfLoaves }),
+        body: JSON.stringify({ email, mobileNumber, address, numberOfLoaves}),
+        headers: { "Content-Type": "application/json" },
+      }).finally(() => {
+        setLoading(false);
       });
 
       if (!res.ok) {
@@ -31,7 +35,7 @@ export default function Newsletter() {
     }
   };
   return (
-    <section>
+    <section id="form">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* CTA box */}
         <div
@@ -81,7 +85,7 @@ export default function Newsletter() {
             </div>
 
             {/* CTA form */}
-            <form className="w-full lg:w-1/2" onSubmit={handleSubmit} id='form'>
+            <form className="w-full lg:w-1/2" onSubmit={handleSubmit}>
               <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none">
                 <input
                   type="email"
@@ -119,7 +123,7 @@ export default function Newsletter() {
                     {numberOfLoaves}
                   </span>
                   <span className="text-white ml-10 font-bold italic">
-                    {'R'+numberOfLoaves*40}
+                    {"R" + numberOfLoaves * 40}
                   </span>
                   <div className="absolute right-0 inset-y-0 flex items-center mx-8">
                     <button
