@@ -1,6 +1,6 @@
 import { Database } from "sqlite3";
 //connect to the db in orders.db
-const db = new Database("./orders.db", (err) => {
+export const db = new Database("./orders.db", (err) => {
   if (err) console.error(err);
 });
 
@@ -18,7 +18,7 @@ export default function updateDB(
   address: string,
   numberOfLoaves: number
 ) {
-  //insert new record into db
+  // insert new record into db
   db.run(
     "INSERT INTO orders (email, mobileNumber, address, numberOfLoaves) VALUES (?, ?, ?, ?);",
     email,

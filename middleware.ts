@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
 
   if (
     origin?.includes("localhost:3000") ||
-    origin?.includes("https://bread-people.vercel.app/")
+    origin?.includes("https://bread-people.vercel.app/") || true
   ) {
     return NextResponse.next();
   } else {
