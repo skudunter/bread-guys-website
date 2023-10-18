@@ -3,9 +3,23 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const origin = request.headers.get("origin");
-  if (origin == "http://localhost:3000" || origin == "https://") {
-    console.log(origin);
-    return NextResponse.next();
+  console.log(origin);
+
+  const url = request.url;
+
+  if (
+    origin?.includes("localhost:3000") ||
+    origin?.includes("https://bread-people.vercel.app/")
+  ) {
+    if (url.includes("/admin")) {
+      if (request.cookies.get("isAdmin")) {
+        return NextResponse.next();
+      } else {
+        return NextResponse.redirect("https://bread-people.vercel.app/");
+      }
+    } else {
+      return NextResponse.next();
+    }
   } else {
     return NextResponse.json({
       error: "Invalid origin",
@@ -14,5 +28,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: "/api/handleSubmit",
+  matcher: ["/api/:path*", "/admin/"],
 };
