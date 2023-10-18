@@ -13,7 +13,6 @@ export default function Newsletter() {
 
     try {
       setLoading(true);
-      setCookie(process.env.COOKIE_NAME!,'true',1);
       const res: Response = await fetch("/api/handleSubmit", {
         method: "POST",
         body: JSON.stringify({ email, mobileNumber, address, numberOfLoaves}),

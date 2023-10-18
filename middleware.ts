@@ -8,19 +8,19 @@ export function middleware(request: NextRequest) {
 
   const url = request.url;
 
+  if (url.includes("/admin")) {
+    if (request.cookies.get("isAdmin")) {
+      return NextResponse.next();
+    } else {
+      return NextResponse.redirect("https://bread-people.vercel.app/");
+    }
+  }
+
   if (
     origin?.includes("localhost:3000") ||
-    origin?.includes("https://bread-people.vercel.app/") || origin == null
+    origin?.includes("https://bread-people.vercel.app/")
   ) {
-    if (url.includes("/admin")) {
-      if (request.cookies.get("isAdmin")) {
-        return NextResponse.next();
-      } else {
-        return NextResponse.redirect("https://bread-people.vercel.app/");
-      }
-    } else {
-      return NextResponse.next();
-    }
+    return NextResponse.next();
   } else {
     return NextResponse.json({
       error: "Invalid origin",
