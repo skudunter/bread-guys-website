@@ -13,6 +13,7 @@ export default function Newsletter() {
 
     try {
       setLoading(true);
+      setCookie(process.env.COOKIE_NAME!,'true',1);
       const res: Response = await fetch("/api/handleSubmit", {
         method: "POST",
         body: JSON.stringify({ email, mobileNumber, address, numberOfLoaves}),
@@ -192,4 +193,11 @@ export default function Newsletter() {
       </div>
     </section>
   );
+}
+
+function setCookie(name: string, value: string, days: number) {
+  const date = new Date();
+  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+  const expires = `expires=${date.toUTCString()}`;
+  document.cookie = `${name}=${value}; ${expires}; path=/`;
 }

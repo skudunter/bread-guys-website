@@ -4,12 +4,13 @@ import type { NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
   const origin = request.headers.get("origin");
   console.log(origin);
+  console.log(request.url);
 
   const url = request.url;
 
   if (
     origin?.includes("localhost:3000") ||
-    origin?.includes("https://bread-people.vercel.app/")
+    origin?.includes("https://bread-people.vercel.app/") || origin == null
   ) {
     if (url.includes("/admin")) {
       if (request.cookies.get("isAdmin")) {
