@@ -13,16 +13,16 @@ export default function Newsletter() {
     try {
       setLoading(true);
       const apiKey = process.env.NEXT_PUBLIC_API_KEY!;
-      
+
       const res: Response = await fetch("/api/handleSubmit", {
         method: "POST",
         body: JSON.stringify({ email, mobileNumber, address, numberOfLoaves }),
-        headers: { "Content-Type": "application/json",'Authorization':'Basic PASSWORD'},
-        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }).finally(() => {
         setLoading(false);
       });
-      deleteCookie('apiKey');
       if (!res.ok) {
         throw new Error("Failed to subscribe");
       }
@@ -204,6 +204,6 @@ function setCookie(name: string, value: string, days: number) {
 }
 
 function deleteCookie(name: string) {
-  const pastDate = new Date(0); 
+  const pastDate = new Date(0);
   document.cookie = `${name}=; expires=${pastDate.toUTCString()}; path=/`;
 }

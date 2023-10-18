@@ -1,18 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
+import { RateLimiter } from "limiter";
+const limiter = new RateLimiter({
+  tokensPerInterval: 5,
+  interval: "hour",
+  fireImmediately: true,
+});
 
 export async function POST(req: NextRequest, res: NextResponse) {
-  //need api key to access
-  const apiKey = process.env.API_KEY;
-  
-  const userApikey = req.headers.get('apiKey');
-  console.log(userApikey);
+  //write data to a db
+  console.log("connection to handleSubmit made");
 
-  if (userApikey == apiKey) {
-    console.log("request is valid");
-  }
-  console.log("connection on POST");
   const { email, mobileNumber, address, numberOfLoaves } = await req.json();
+//   if (email && mobileNumber && address && numberOfLoaves) {
+    const remainingRequests = await limiter.removeTokens(1);
+    if (remainingRequests > 0) {
+      console.log("request made");
 
+    } else {
+      console.log("Tokens are up");
+      return NextResponse.json({ status: 429 });
+    }
+//   } else {
+//     return NextResponse.json({ status: 505 });
+//   }
   return NextResponse.json({
     status: 200,
   });
