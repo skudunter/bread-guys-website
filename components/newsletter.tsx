@@ -10,17 +10,19 @@ export default function Newsletter() {
   const [success, setSuccess] = useState("");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
       setLoading(true);
+      const apiKey = process.env.NEXT_PUBLIC_API_KEY!;
+      
       const res: Response = await fetch("/api/handleSubmit", {
         method: "POST",
-        body: JSON.stringify({ email, mobileNumber, address, numberOfLoaves}),
-        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, mobileNumber, address, numberOfLoaves }),
+        headers: { "Content-Type": "application/json",'Authorization':'Basic PASSWORD'},
+        credentials: "include",
       }).finally(() => {
         setLoading(false);
       });
-
+      deleteCookie('apiKey');
       if (!res.ok) {
         throw new Error("Failed to subscribe");
       }
@@ -196,7 +198,12 @@ export default function Newsletter() {
 
 function setCookie(name: string, value: string, days: number) {
   const date = new Date();
-  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
   const expires = `expires=${date.toUTCString()}`;
   document.cookie = `${name}=${value}; ${expires}; path=/`;
+}
+
+function deleteCookie(name: string) {
+  const pastDate = new Date(0); 
+  document.cookie = `${name}=; expires=${pastDate.toUTCString()}; path=/`;
 }
