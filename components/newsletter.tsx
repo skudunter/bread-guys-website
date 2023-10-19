@@ -13,7 +13,7 @@ export default function Newsletter() {
     try {
       setLoading(true);
       const apiKey = process.env.NEXT_PUBLIC_API_KEY!;
-
+      //add secure communication
       const res: Response = await fetch("/api/handleSubmit", {
         method: "POST",
         body: JSON.stringify({ email, mobileNumber, address, numberOfLoaves }),
@@ -24,7 +24,7 @@ export default function Newsletter() {
         setLoading(false);
       });
       if (!res.ok) {
-        throw new Error("Failed to subscribe");
+        throw new Error("Failed to handlesubmit");
       }
 
       setSuccess("Subscribed successfully!");
