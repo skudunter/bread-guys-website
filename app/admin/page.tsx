@@ -2,6 +2,7 @@ import { order } from "../lib/types";
 
 export default async function AdminPage() {
   let orders: order[] = [];
+
   const res: Response = await fetch("http://localhost:3000/api/getOrderData", {
     method: "GET",
     headers: {
@@ -10,16 +11,15 @@ export default async function AdminPage() {
     cache: "no-cache",
   });
 
-  let data = await res.json();
-  orders = data;
-  console.log(orders);
-
   if (!res.ok) {
     throw new Error("Failed to get data");
   }
 
+  let data = await res.json();
+  orders = data;
+  
   return (
-    <div>
+    ( orders !== undefined && orders.length > 0) && ( <div>
       <h1>Admin Page</h1>
       <table className="min-w-full divide-y divide-gray-200">
         <thead>
@@ -63,6 +63,6 @@ export default async function AdminPage() {
           ))}
         </tbody>
       </table>
-    </div>
+    </div>)
   );
 }
