@@ -7,9 +7,11 @@ type order = {
 
 export default async function AdminPage() {
   let orders: order[] = [];
-  const res: Response = await fetch("http://localhost:3000/api/getOrderData");
+  const res: Response = await fetch("http://localhost:3000/api/getOrderData", {
+    cache: "no-cache",
+  });
   let data = await res.json();
-  console.log('client side ',data);
+  orders = data;
 
   if (!res.ok) {
     throw new Error("Failed to get data");

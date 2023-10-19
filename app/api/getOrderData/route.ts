@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { open, Database } from "sqlite";
+import { open } from "sqlite";
+import  sqlite3 from "sqlite3";
 let db: any = null;
 type order = {
   email: string;
@@ -14,10 +15,10 @@ export async function GET(req: NextRequest, res: NextResponse) {
     // If the database instance is not initialized, open the database connection
     db = await open({
       filename: "./orders.db", // Specify the database file path
-      driver: Database, // Specify the database driver (sqlite3 in this case)
+      driver:sqlite3.Database
     });
   }
-  const items = await db.all("SELECT * FROM items");
+  const items = await db.all("SELECT * FROM orders");
   return new Response(JSON.stringify(items), {
     headers: { "Content-Type": "application/json" },
     status: 200,
