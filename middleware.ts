@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
+  //request origin - null if sent from server
   const origin = request.headers.get("origin");
-  
+  //url request is trying to access
   const url = request.url;
 
   if (url.includes("/admin")) {
@@ -14,10 +15,24 @@ export function middleware(request: NextRequest) {
       return NextResponse.redirect("https://bread-people.vercel.app/");
     }
   }
+  //grant access to the api if the password in the body is valid or the origin is correct
+  //sloppy but works
+  let password: any = "";
+  try {
+    password = await request.json();
+  } catch (e) {
+    console.log(e);
+    console.log('someone unauthorized trying to access api');
+    
+    return NextResponse.json({
+      error: "Invalid origin",
+    });
+  }
 
   if (
     origin?.includes("localhost:3000") ||
-    origin?.includes("https://bread-people.vercel.app/") || true
+    origin?.includes("https://bread-people.vercel.app/") ||
+    password.password == process.env.COOKIE_NAME
   ) {
     return NextResponse.next();
   } else {

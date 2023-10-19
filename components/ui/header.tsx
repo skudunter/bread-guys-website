@@ -61,8 +61,6 @@ export default function Header() {
               </li>
             </ul>
           </div>
-
-          <MobileMenu />
         </div>
       </div>
     </header>
