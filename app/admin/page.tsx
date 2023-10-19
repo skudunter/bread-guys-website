@@ -1,7 +1,7 @@
 type order = {
   email: string;
   mobileNumber: number;
-  adddress: string;
+  address: string;
   numberOfLoaves: number;
 };
 
@@ -29,16 +29,28 @@ export default async function AdminPage() {
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               MobileNumber
             </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Address
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              NumberOfLoaves
+            </th>
           </tr>
         </thead>
         <tbody>
-          {orders.map((order: any, index: number) => (
+          {orders.map((order: order, index: number) => (
             <tr key={index}>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {order.email}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {order.mobileNumber}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                {order.address}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                {order.numberOfLoaves}
               </td>
             </tr>
           ))}
