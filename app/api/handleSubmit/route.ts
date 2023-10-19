@@ -14,8 +14,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
   if (email && mobileNumber && address && numberOfLoaves) {
     const remainingRequests = await limiter.removeTokens(1);
     if (remainingRequests > 0) {
-      let time = new Date();
-      customDB.insertNewRecord(email, mobileNumber, address, numberOfLoaves,time);
+      customDB.insertNewRecord(email, mobileNumber, address, numberOfLoaves);
     } else {
       console.log("Tokens are up");
       return NextResponse.json({ status: 429 });

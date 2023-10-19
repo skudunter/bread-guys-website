@@ -13,7 +13,7 @@ class sqliteDB {
       //create the order table in orders.db
       this.db.serialize(() => {
         this.db!.run(
-          "CREATE TABLE IF NOT EXISTS orders (email TEXT, mobileNumber INTEGER, address TEXT, numberOfLoaves INTEGER, time DATE);",
+          "CREATE TABLE IF NOT EXISTS orders (email TEXT, mobileNumber INTEGER, address TEXT, numberOfLoaves INTEGER, time TEXT);",
           (err: any) => {
             if (err) console.error(err);
           }
@@ -29,13 +29,13 @@ class sqliteDB {
     mobileNumber: number,
     address: string,
     numberOfLoaves: number,
-    time: Date
   ) {
     // insert new record into db
     if (this.db) {
       this.db.serialize(() => {
+        let time = new Date();
         this.db!.run(
-          "INSERT INTO orders (email, mobileNumber, address, numberOfLoaves,time) VALUES (?, ?, ?, ?,?);",
+          "INSERT INTO orders (email, mobileNumber, address, numberOfLoaves,time) VALUES (?, ?, ?, ?, ?);",
           email,
           mobileNumber,
           address,

@@ -11,7 +11,7 @@ export default async function AdminPage() {
   });
   let data = await res.json();
   orders = data;
-  console.log(orders);
+  // console.log(orders);
 
   if (!res.ok) {
     throw new Error("Failed to get data");
@@ -35,6 +35,9 @@ export default async function AdminPage() {
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               NumberOfLoaves
             </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Order Time
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -51,6 +54,9 @@ export default async function AdminPage() {
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {order.numberOfLoaves}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                {order.time.toString()}
               </td>
             </tr>
           ))}
