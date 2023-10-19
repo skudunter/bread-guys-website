@@ -12,7 +12,6 @@ export default function Newsletter() {
     e.preventDefault();
     try {
       setLoading(true);
-      const apiKey = process.env.NEXT_PUBLIC_API_KEY!;
       //add secure communication
       const res: Response = await fetch("/api/handleSubmit", {
         method: "POST",

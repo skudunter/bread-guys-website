@@ -3,7 +3,7 @@ import customDB from "@/app/lib/db";
 import { order } from "@/app/lib/types";
 
 let items: order[] = [];
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest, res: NextResponse) {
   try {
     items = await customDB.getAllRecords();
   } catch (e) {
