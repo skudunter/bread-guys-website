@@ -9,17 +9,14 @@ export default async function AdminPage() {
     },
     cache: "no-cache",
   });
-  // console.log(await res.json());
-  
-  // let data = await res.json();
-  // orders = data;
-  // // console.log(orders);
+
+  let data = await res.json();
+  orders = data;
+  console.log(orders);
 
   if (!res.ok) {
     throw new Error("Failed to get data");
   }
-
- return (<p/>)
 
   return (
     <div>

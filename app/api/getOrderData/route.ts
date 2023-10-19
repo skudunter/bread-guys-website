@@ -5,7 +5,6 @@ import { order } from "@/app/lib/types";
 let orders: order[] = [];
 export async function GET(req: NextRequest, res: NextResponse) {
   const items = await customDB.getAllRecords();
-  console.log(items);
   
   return new Response(JSON.stringify(items), {
     headers: { "Content-Type": "application/json" },

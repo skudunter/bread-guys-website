@@ -1,4 +1,7 @@
 import { Database, OPEN_READWRITE, OPEN_CREATE } from "sqlite3";
+import sqlite3 from "sqlite3";
+import { open } from "sqlite";
+import { order } from "./types";
 
 //create a class to connect to the db
 class sqliteDB {
@@ -51,19 +54,22 @@ class sqliteDB {
       console.log("db error while adding new record");
     }
   }
-  async getAllRecords() {
+  async getAllRecords(): Promise<order[]> {
     // get all records from db
-    let items: any = "pie";
-    if (this.db) {
-      this.db.serialize( () => {
-        items =  this.db!.run("SELECT * FROM orders;", (err: any, rows: any) => {
-          if (err) console.error(err);
-        });
+    //sloppy code, but works cheers future me
+    let tdb = await open({
+      filename: "./orders.db",
+      driver: sqlite3.Database,
+    });
+    let items: order[] | undefined = [];
+    if (tdb) {
+      items = await tdb.all("SELECT * FROM orders", (err: any) => {
+        if (err) console.error(err);
       });
     } else {
       console.log("db error while getting all records");
     }
-    return items;
+    return items!;
   }
 }
 const customDB: sqliteDB = new sqliteDB("./orders.db");
