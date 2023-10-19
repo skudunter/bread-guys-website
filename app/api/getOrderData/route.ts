@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "../handleSubmit/updateDB";
-
+import { open, Database } from "sqlite";
+let db: any = null;
 type order = {
   email: string;
   mobileNumber: number;
@@ -9,17 +9,17 @@ type order = {
 };
 
 let orders: order[] = [];
-export function GET(req: NextRequest, res: NextResponse) {
-    console.log('request made');
-    
-  db.each("SELECT * FROM users", (err, row: any) => {
-    orders.push({
-      email: row?.email,
-      mobileNumber: row?.mobileNumber,
-      adddress: row?.address,
-      numberOfLoaves: row?.numberOfLoaves,
+export async function GET(req: NextRequest, res: NextResponse) {
+  if (!db) {
+    // If the database instance is not initialized, open the database connection
+    db = await open({
+      filename: "./orders.db", // Specify the database file path
+      driver: Database, // Specify the database driver (sqlite3 in this case)
     });
-    console.log(orders);
+  }
+  const items = await db.all("SELECT * FROM items");
+  return new Response(JSON.stringify(items), {
+    headers: { "Content-Type": "application/json" },
+    status: 200,
   });
-  return NextResponse.json(orders);
 }
