@@ -16,7 +16,7 @@ export default async function AdminPage() {
     headers: {
       "Content-Type": "application/json",
     },
-    cache: "no-cache",
+    cache:'no-cache'
   });
 
   if (!res.ok) {

@@ -28,37 +28,21 @@ export default function Footer() {
             {/* 2nd, 3rd and 4th blocks */}
             <div className="md:col-span-8 lg:col-span-7 grid sm:grid-cols-3 gap-8">
               {/* 4th block */}
-              <div className="text-sm">
-                <h6 className="text-gray-200 font-medium mb-1">Company</h6>
+              {/* <div className="text-sm">
+                <h6 className="text-gray-200 font-medium mb-1">&copy; The Bread People</h6>
                 <ul>
                   <li className="mb-1">
                     <Link
                       href="/"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-gray-500 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
-                      Consectetur adipiscing
+                      Friend run
                     </Link>
                   </li>
                   <li className="mb-1">
                     <Link
                       href="/"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Labore et dolore
-                    </Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link
-                      href="/"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Consectetur adipiscing
-                    </Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link
-                      href="/"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-gray-500 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Labore et dolore
                     </Link>
@@ -66,13 +50,29 @@ export default function Footer() {
                   <li className="mb-1">
                     <Link
                       href="/"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                      className="text-gray-500 hover:text-gray-100 transition duration-150 ease-in-out"
+                    >
+                      Consectetur adipiscing
+                    </Link>
+                  </li>
+                  <li className="mb-1">
+                    <Link
+                      href="/"
+                      className="text-gray-500 hover:text-gray-100 transition duration-150 ease-in-out"
+                    >
+                      Labore et dolore
+                    </Link>
+                  </li>
+                  <li className="mb-1">
+                    <Link
+                      href="/"
+                      className="text-gray-500 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Consectetur adipiscing
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
 
