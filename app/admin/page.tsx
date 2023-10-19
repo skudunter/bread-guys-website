@@ -38,6 +38,9 @@ export default async function AdminPage() {
             <tr>
               <th className="px-6 py-3 text-left text-md font-extrabold text-gray-700 uppercase tracking-wider"></th>
               <th className="px-6 py-3 text-left text-md font-extrabold text-gray-700 uppercase tracking-wider">
+                ID
+              </th>
+              <th className="px-6 py-3 text-left text-md font-extrabold text-gray-700 uppercase tracking-wider">
                 Email
               </th>
               <th className="px-6 py-3 text-left text-md font-extrabold text-gray-700 uppercase tracking-wider">
@@ -59,6 +62,9 @@ export default async function AdminPage() {
               <tr key={index}>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 font-bold">
                   <button>jiiji</button>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 font-bold">
+                  {order.ID}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 font-bold">
                   {order.email}

@@ -16,7 +16,7 @@ class sqliteDB {
       //create the order table in orders.db
       this.db.serialize(() => {
         this.db!.run(
-          "CREATE TABLE IF NOT EXISTS orders (email TEXT, mobileNumber INTEGER, address TEXT, numberOfLoaves INTEGER, time TEXT);",
+          "CREATE TABLE IF NOT EXISTS orders (ID INTEGER PRIMARY KEY, email TEXT, mobileNumber INTEGER, address TEXT, numberOfLoaves INTEGER, time TEXT);",
           (err: any) => {
             if (err) console.error(err);
           }
@@ -69,6 +69,8 @@ class sqliteDB {
     } else {
       console.log("db error while getting all records");
     }
+    console.log(items);
+    
     return items!;
   }
 }
