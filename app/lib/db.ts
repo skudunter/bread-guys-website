@@ -68,9 +68,7 @@ class sqliteDB {
       });
     } else {
       console.log("db error while getting all records");
-    }
-    console.log(items);
-    
+    }    
     return items!;
   }
 }
