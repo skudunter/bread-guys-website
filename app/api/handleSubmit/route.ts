@@ -10,7 +10,6 @@ const limiter = new RateLimiter({
 
 export async function POST(req: NextRequest, res: NextResponse) {
   console.log("connection to handleSubmit made");
-
   const { email, mobileNumber, address, numberOfLoaves } = await req.json();
   if (email && mobileNumber && address && numberOfLoaves) {
     const remainingRequests = await limiter.removeTokens(1);
