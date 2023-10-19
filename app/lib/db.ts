@@ -68,8 +68,21 @@ class sqliteDB {
       });
     } else {
       console.log("db error while getting all records");
-    }    
+    }
     return items!;
+  }
+  deleteRecord(ID: number) {
+    // delete record from db
+    if (this.db) {
+      this.db.serialize(() => {
+        this.db!.run("DELETE FROM orders WHERE ID = ?", ID, (err: any) => {
+          if (err) console.error(err);
+        });
+        console.log("deleted record from db");
+      });
+    } else {
+      console.log("db error while deleting record");
+    }
   }
 }
 const customDB: sqliteDB = new sqliteDB("./orders.db");

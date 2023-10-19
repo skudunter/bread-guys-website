@@ -1,8 +1,24 @@
 "use client";
 import { useState } from "react";
 export default function DeleteButton({ ID }: { ID: number }) {
-  function handleClick() {
-    
+  async function handleClick() {
+    try {
+      const res: Response = await fetch("/api/handleDelete", {
+        method: "DELETE",
+        body: JSON.stringify({
+          ID,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!res.ok) {
+        throw new Error("Failed to delete user");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    location.reload();
   }
   return (
     <button
