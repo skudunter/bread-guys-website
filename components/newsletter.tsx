@@ -134,9 +134,25 @@ export default function Newsletter() {
             {/* CTA content */}
             <div className="mb-6 lg:mr-16 lg:mb-0 text-center lg:text-left lg:w-1/2">
               <h3 className="h3 text-white mb-2">Order bread now</h3>
-              <p className="text-purple-200 text-lg">
+              <p className="text-purple-200 text-lg mb-2">
                 Follow a few easy steps to place your order.
               </p>
+              {formErrors.emailError && (
+                <p className="text-purple-900 animate-bounce">{formErrors.emailError}</p>
+              )}
+              {formErrors.mobileNumberError && (
+                <p className="text-purple-900 animate-bounce">
+                  {formErrors.mobileNumberError}
+                </p>
+              )}
+              {formErrors.addressError && (
+                <p className="text-purple-900 animate-bounce">{formErrors.addressError}</p>
+              )}
+              {formErrors.numberOfLoavesError && (
+                <p className="text-purple-900 animate-bounce">
+                  {formErrors.numberOfLoavesError}
+                </p>
+              )}
             </div>
 
             {/* CTA form */}
@@ -207,7 +223,7 @@ export default function Newsletter() {
                     </button>
                     <button
                       type="button"
-                      className="text-purple-400 hover:text-purple-300"
+                      className="text-purple-400 hover:text-purple-300 focus:"
                       onClick={() => {
                         if (numberOfLoaves > 0) {
                           setNumberOfLoaves(numberOfLoaves - 1);
@@ -234,7 +250,7 @@ export default function Newsletter() {
                 </div>
               </div>
               <button
-                className={`flex appearance-none flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none mt-6 px-4 py-2 border bg-purple-700 border-purple-500 focus:border-purple-300 text-white transition duration-100 ease-in-out hover:bg-purple-500 ${
+                className={`flex appearance-none flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none mt-6 px-4 py-2 border bg-purple-700 border-purple-500 focus:border-purple-300  text-white transition duration-100 ease-in-out hover:bg-purple-500 ${
                   loading ? "cursor-not-allowed" : "cursor-auto"
                 }`}
                 type="submit"
@@ -242,22 +258,7 @@ export default function Newsletter() {
               >
                 Submit
               </button>
-              {formErrors.emailError && (
-                <p className="text-purple-900 animate-bounce">{formErrors.emailError}</p>
-              )}
-              {formErrors.mobileNumberError && (
-                <p className="text-purple-900 animate-bounce">
-                  {formErrors.mobileNumberError}
-                </p>
-              )}
-              {formErrors.addressError && (
-                <p className="text-purple-900 animate-bounce">{formErrors.addressError}</p>
-              )}
-              {formErrors.numberOfLoavesError && (
-                <p className="text-purple-900 animate-bounce">
-                  {formErrors.numberOfLoavesError}
-                </p>
-              )}
+              
             </form>
           </div>
         </div>

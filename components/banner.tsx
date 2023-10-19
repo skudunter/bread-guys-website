@@ -17,7 +17,7 @@ export default function Banner() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Get<span className="hidden sm:inline"> in contact</span>
+                Get in contact
               </Link>{' '}
               <span className="italic px-1.5">or</span>{' '}
               <a className="font-medium hover:underline text-quad" href="https://cruip.com/open-pro/" target="_blank" rel="noreferrer">
