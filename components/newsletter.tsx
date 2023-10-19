@@ -1,38 +1,92 @@
 "use client";
 import { useState } from "react";
+interface FormErrors {
+  emailError: string;
+  mobileNumberError: string;
+  addressError: string;
+  numberOfLoavesError: string;
+}
+
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [mobileNumber, setMobileNumber] = useState("");
   const [address, setAddress] = useState("");
   const [numberOfLoaves, setNumberOfLoaves] = useState(0);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+
+  const [formErrors, setFormErrors] = useState<FormErrors>({
+    emailError: "",
+    mobileNumberError: "",
+    addressError: "",
+    numberOfLoavesError: "",
+  });
+
+  const validateForm = (): boolean => {
+    let validated = true;
+
+    const newErrors: FormErrors = {
+      emailError: "",
+      mobileNumberError: "",
+      addressError: "",
+      numberOfLoavesError: "",
+    };
+
+    if (email.length < 3 || email.length > 30) {
+      validated = false;
+      newErrors.emailError = "Email is required";
+    }
+    const regex = /^[0-9]+$/;
+
+    if (!regex.test(mobileNumber)) {
+      validated = false;
+      newErrors.mobileNumberError = "Mobile number should contain only numbers";
+    }
+    if (mobileNumber.length < 8 || mobileNumber.length > 20) {
+      validated = false;
+      newErrors.mobileNumberError = "Valid mobile number is required";
+    }
+
+    if (address.length < 3 || address.length > 30) {
+      validated = false;
+      newErrors.addressError = "Address is required";
+    }
+    if (numberOfLoaves === 0 || numberOfLoaves > 100) {
+      validated = false;
+      newErrors.numberOfLoavesError = "Number of loaves is required";
+    }
+    setFormErrors(newErrors);
+    return validated;
+  };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      setLoading(true);
-      //add secure communication
-      const res: Response = await fetch("/api/handleSubmit", {
-        method: "POST",
-        body: JSON.stringify({ email, mobileNumber, address, numberOfLoaves }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).finally(() => {
-        setLoading(false);
-      });
-      if (!res.ok) {
-        throw new Error("Failed to handlesubmit");
-      }
+    if (!loading && validateForm()) {
+      try {
+        setLoading(true);
+        const res: Response = await fetch("/api/handleSubmit", {
+          method: "POST",
+          body: JSON.stringify({
+            email,
+            mobileNumber,
+            address,
+            numberOfLoaves,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }).finally(() => {
+          setLoading(false);
+        });
+        if (!res.ok) {
+          throw new Error("Failed to handlesubmit");
+        }
 
-      setSuccess("Subscribed successfully!");
-      setEmail("");
-      setMobileNumber("");
-      setAddress("");
-      setNumberOfLoaves(0);
-    } catch (err) {
-      setError("Failed to subscribe");
+        setEmail("");
+        setMobileNumber("");
+        setAddress("");
+        setNumberOfLoaves(0);
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
   return (
@@ -90,6 +144,7 @@ export default function Newsletter() {
               <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none">
                 <input
                   type="email"
+                  name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full appearance-none bg-purple-700 border border-purple-500 focus:border-purple-300 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-purple-400"
@@ -179,14 +234,30 @@ export default function Newsletter() {
                 </div>
               </div>
               <button
-                className="flex appearance-none flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none mt-6 px-4 py-2 border bg-purple-700 border-purple-500 focus:border-purple-300 text-white transition duration-100 ease-in-out hover:bg-purple-500"
+                className={`flex appearance-none flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none mt-6 px-4 py-2 border bg-purple-700 border-purple-500 focus:border-purple-300 text-white transition duration-100 ease-in-out hover:bg-purple-500 ${
+                  loading ? "cursor-not-allowed" : "cursor-auto"
+                }`}
                 type="submit"
                 onClick={handleSubmit}
               >
                 Submit
               </button>
-              {error && <p className="text-red-600">{error}</p>}
-              {success && <p className="text-green-600">{success}</p>}
+              {formErrors.emailError && (
+                <p className="text-purple-900 animate-bounce">{formErrors.emailError}</p>
+              )}
+              {formErrors.mobileNumberError && (
+                <p className="text-purple-900 animate-bounce">
+                  {formErrors.mobileNumberError}
+                </p>
+              )}
+              {formErrors.addressError && (
+                <p className="text-purple-900 animate-bounce">{formErrors.addressError}</p>
+              )}
+              {formErrors.numberOfLoavesError && (
+                <p className="text-purple-900 animate-bounce">
+                  {formErrors.numberOfLoavesError}
+                </p>
+              )}
             </form>
           </div>
         </div>
