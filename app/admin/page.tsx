@@ -3,19 +3,23 @@ import { order } from "../lib/types";
 export default async function AdminPage() {
   let orders: order[] = [];
   const res: Response = await fetch("http://localhost:3000/api/getOrderData", {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
     cache: "no-cache",
   });
-  let data = await res.json();
-  orders = data;
-  // console.log(orders);
+  // console.log(await res.json());
+  
+  // let data = await res.json();
+  // orders = data;
+  // // console.log(orders);
 
   if (!res.ok) {
     throw new Error("Failed to get data");
   }
+
+ return (<p/>)
 
   return (
     <div>

@@ -28,12 +28,12 @@ class sqliteDB {
     email: string,
     mobileNumber: number,
     address: string,
-    numberOfLoaves: number,
+    numberOfLoaves: number
   ) {
     // insert new record into db
     if (this.db) {
       this.db.serialize(() => {
-        let time = new Date();
+        let time = convertDate();
         this.db!.run(
           "INSERT INTO orders (email, mobileNumber, address, numberOfLoaves,time) VALUES (?, ?, ?, ?, ?);",
           email,
@@ -51,6 +51,35 @@ class sqliteDB {
       console.log("db error while adding new record");
     }
   }
+  async getAllRecords() {
+    // get all records from db
+    let items: any = "pie";
+    if (this.db) {
+      this.db.serialize( () => {
+        items =  this.db!.run("SELECT * FROM orders;", (err: any, rows: any) => {
+          if (err) console.error(err);
+        });
+      });
+    } else {
+      console.log("db error while getting all records");
+    }
+    return items;
+  }
 }
 const customDB: sqliteDB = new sqliteDB("./orders.db");
 export default customDB;
+
+function convertDate() {
+  let date = new Date();
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  };
+  //@ts-ignore
+  return date.toLocaleString("en-US", options);
+}
