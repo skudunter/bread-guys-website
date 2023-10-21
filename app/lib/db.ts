@@ -63,7 +63,7 @@ class sqliteDB {
     });
     let items: order[] | undefined = [];
     if (tdb) {
-      items = await tdb.all("SELECT * FROM orders", (err: any) => {
+      items = await tdb.all("SELECT * FROM orders ORDER BY time", (err: any) => {
         if (err) console.error(err);
       });
     } else {

@@ -138,7 +138,9 @@ export default function Newsletter() {
                 Follow a few easy steps to place your order.
               </p>
               {formErrors.emailError && (
-                <p className="text-purple-900 animate-bounce">{formErrors.emailError}</p>
+                <p className="text-purple-900 animate-bounce">
+                  {formErrors.emailError}
+                </p>
               )}
               {formErrors.mobileNumberError && (
                 <p className="text-purple-900 animate-bounce">
@@ -146,7 +148,9 @@ export default function Newsletter() {
                 </p>
               )}
               {formErrors.addressError && (
-                <p className="text-purple-900 animate-bounce">{formErrors.addressError}</p>
+                <p className="text-purple-900 animate-bounce">
+                  {formErrors.addressError}
+                </p>
               )}
               {formErrors.numberOfLoavesError && (
                 <p className="text-purple-900 animate-bounce">
@@ -214,9 +218,9 @@ export default function Newsletter() {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
                           d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                         ></path>
                       </svg>
@@ -239,9 +243,9 @@ export default function Newsletter() {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
                           d="M20 12H4"
                         ></path>
                       </svg>
@@ -258,7 +262,6 @@ export default function Newsletter() {
               >
                 Submit
               </button>
-              
             </form>
           </div>
         </div>

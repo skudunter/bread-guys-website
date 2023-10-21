@@ -22,8 +22,8 @@ export async function middleware(request: NextRequest) {
     password = await request.json();
   } catch (e) {
     console.log(e);
-    console.log('someone unauthorized trying to access api');
-    
+    console.log("someone unauthorized trying to access api");
+
     return NextResponse.json({
       error: "Invalid origin",
     });
@@ -31,7 +31,7 @@ export async function middleware(request: NextRequest) {
 
   if (
     origin?.includes("localhost:3000") ||
-    origin?.includes("https://bread-people.vercel.app/") ||
+    origin?.includes("https://the-bread-people.vercel.app/") ||
     password.password == process.env.COOKIE_NAME
   ) {
     return NextResponse.next();
