@@ -9,23 +9,25 @@ export default async function AdminPage() {
   // console.log('how tf did u get here can u please not do anything bad? and direct my site weaknesses to danielgruttercpt@gmail.com');
 
   let orders: order[] = [];
+  try {
+    const res: Response = await fetch("https://bread-people.vercel.app/api/getOrderData", {
+      method: "POST",
+      body: JSON.stringify({ password: process.env.COOKIE_NAME }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "no-cache",
+    });
 
-  const res: Response = await fetch("http://localhost:3000/api/getOrderData", {
-    method: "POST",
-    body: JSON.stringify({ password: process.env.COOKIE_NAME }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-    cache:'no-cache'
-  });
+    if (!res.ok) {
+      throw new Error("Failed to get data");
+    }
 
-  if (!res.ok) {
-    throw new Error("Failed to get data");
+    let data = await res.json();
+    orders = data;
+  } catch (e) {
+    console.log(e);
   }
-
-  let data = await res.json();
-  orders = data;
-
   return (
     <main>
       <PageIllustration />

@@ -30,7 +30,6 @@ export async function middleware(request: NextRequest) {
   }
 
   if (
-    origin?.includes("localhost:3000") ||
     origin?.includes("https://the-bread-people.vercel.app/") ||
     password.password == process.env.COOKIE_NAME
   ) {
