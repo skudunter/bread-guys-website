@@ -12,7 +12,7 @@ export async function middleware(request: NextRequest) {
     if (request.cookies.get(process.env.COOKIE_NAME!)) {
       return NextResponse.next();
     } else {
-      return NextResponse.redirect("https://bread-people.vercel.app/");
+      return NextResponse.redirect("https://the-bread-people.vercel.app/");
     }
   }
   //grant access to the api if the password in the body is valid or the origin is correct
