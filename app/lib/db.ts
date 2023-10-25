@@ -59,6 +59,7 @@ class sqliteDB {
     //sloppy code, but works cheers future me
     let tdb = await open({
       filename: "./orders.db",
+      mode:OPEN_READWRITE,
       driver: sqlite3.Database,
     });
     let items: order[] | undefined = [];

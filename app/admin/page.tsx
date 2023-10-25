@@ -10,7 +10,7 @@ export default async function AdminPage() {
 
   let orders: order[] = [];
   try {
-    const res: Response = await fetch("https://the-bread-people.vercel.app/api/getOrderData", {
+    const res: Response = await fetch("http://localhost:3000/api/getOrderData", {
       method: "POST",
       body: JSON.stringify({ password: process.env.COOKIE_NAME }),
       headers: {
